@@ -1,6 +1,11 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 /*Navbar*/
@@ -8,10 +13,14 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: blue;
+  background-color: #4169e1;
   color: aliceblue;
   font-weight: bold;
-  letter-spacing: 2px;
+  padding: 10px 20px;
+}
+
+.navbar-home {
+  font-size: 18px;
 }
 
 .navbar-links {
@@ -34,12 +43,12 @@ body {
 
 .navbar-link:hover,
 .navbar-home:hover {
-  background-color: rgb(66, 66, 255);
+  background-color: #6581d4;
 }
 
 .navbar-link:active,
 .navbar-home:active {
-  background-color: rgb(0, 0, 162);
+  background-color: #2150dc;
   position: relative;
   top: 2px;
 }
@@ -89,7 +98,7 @@ button:active {
 }
 
 .result {
-  min-height: 10vh;
+  min-height: 5vh;
   font-size: 1.5em;
   font-weight: bold;
   padding-top: 2em;
