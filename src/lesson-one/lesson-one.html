@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/home/index.css" />
-    <title>JavaScript Variables and Operations</title>
+    <link rel="stylesheet" href="lesson-one.css" />
+    <title>Lesson One - JavaScript</title>
   </head>
   <body>
     <header>
@@ -38,7 +38,14 @@
       </nav>
     </header>
     <main>
-      <h1>Welcome to my <span>JavaScript</span> assignments 👩🏼‍💻</h1>
+      <div>
+        <h1>Celsius to Fahrenheit Converter</h1>
+        <label for="temperature">Temp (°C):</label>
+        <input type="text" id="temperature" />
+        <button onclick="handleConversion()">Convert to °F</button>
+        <p id="result" class="result"></p>
+      </div>
     </main>
+    <script src="lesson-one.js"></script>
   </body>
 </html>

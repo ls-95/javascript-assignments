@@ -11,3 +11,14 @@ function handleConversion() {
   console.log(fahrenheit);
   result.textContent = `${fahrenheit}°F`;
 }
+
+//Exercise 1:
+console.log("Hello, World!");
+
+//Exercise 2;
+let firstName = "Polly";
+let age = 57;
+let favouriteColor = "lavender";
+console.log(
+  `Hi! My name is ${firstName} and I am ${age} years old. My favourite colour is ${favouriteColor}.`,
+);
