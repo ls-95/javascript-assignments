@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a8156b8a54.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,6 +17,7 @@
     <title>Lesson Five - JavaScript</title>
   </head>
   <body>
+    <!--Navbar-->
     <header>
       <nav class="navbar">
         <div>
@@ -43,8 +48,35 @@
         </div>
       </nav>
     </header>
+    <!--Bank Account-->
     <main>
-      <p>Lesson 5 coming soon...</p>
+      <div class="bank-account-container">
+        <!--Signal - Wifi - Battery-->
+        <div class="phone-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+        <div class="account-header">
+          <!--Account header-->
+          <h1 class="account-name" id="account-name"></h1>
+          <div class="account-image">
+            <button onclick="handleAlert('My Profile')">
+              <img src="images/Caractacus.webp" alt="An image of Caractacus" />
+            </button>
+          </div>
+        </div>
+        <!--Account balance-->
+        <div class="account-balance">
+          <p class="balance-title">Account Balance</p>
+          <button id="toggle-btn" onclick="getBalance()">Show Balance</button>
+          <h3 class="balance-sum" id="balance"></h3>
+        </div>
+        <!--Account actions-->
+        <div class="account-actions"></div>
+        <!--Account status-->
+        <div class="account-status"></div>
+      </div>
     </main>
     <script src="lesson-five.js"></script>
   </body>
