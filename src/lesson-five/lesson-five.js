@@ -108,6 +108,10 @@ accountError(account.accountNumber, account.accountName);
 accountError(123445, account.accountName);
 accountError(account.accountNumber, "James Dean");
 
+function closeApp() {
+  alert("The app has been closed but you are still logged in!");
+}
+
 function atm(action) {
   switch (action) {
     case "balance":
