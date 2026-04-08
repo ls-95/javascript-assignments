@@ -315,3 +315,7 @@ hr {
   border: 3px solid black;
   border-radius: 1em;
 }
+
+.hidden {
+  display: none;
+}

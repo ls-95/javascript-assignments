@@ -9,7 +9,6 @@ const account = {
 function getAccountName() {
   accountNameText.textContent = `Hello, ${account.accountName}!`;
 }
-getAccountName();
 
 function handleAlert(message) {
   alert(
@@ -31,6 +30,36 @@ function getBalance() {
   isVisible = !isVisible;
 }
 
-function handleDeposit() {}
+function deposit() {
+  const depositAmount = parseFloat(
+    prompt("How much money would you like to deposit?"),
+  );
+  account.balance = account.balance + depositAmount;
+  accountBalance.textContent = `$${account.balance}.00`;
+}
 
-function handleWithdraw() {}
+function withdraw() {
+  const withdrawAmount = parseFloat(
+    prompt("How much money would you like to withdraw?"),
+  );
+  account.balance = account.balance - withdrawAmount;
+  accountBalance.textContent = `$${account.balance}.00`;
+}
+
+function atm(action) {
+  switch (action) {
+    case "balance":
+      getBalance();
+      break;
+    case "deposit":
+      deposit();
+      break;
+    case "withdraw":
+      withdraw();
+      break;
+    case "account name":
+      getAccountName();
+      break;
+    case "exit":
+  }
+}

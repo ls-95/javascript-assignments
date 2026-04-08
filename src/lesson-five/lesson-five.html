@@ -59,28 +59,32 @@
         </div>
         <div class="account-header">
           <!--Account header-->
-          <h1 class="account-name" id="account-name"></h1>
+          <h1 class="account-name" id="account-name">
+            Account Name <i class="fa-solid fa-arrow-right-long"></i>
+          </h1>
           <div class="account-image">
-            <button onclick="handleAlert('My Profile')">
+            <button onclick="atm('account name')">
               <img src="images/Caractacus.webp" alt="An image of Caractacus" />
             </button>
           </div>
         </div>
+        <!--Logged out message-->
+        <p class="hidden" id="logged-out-msg"></p>
         <!--Account balance-->
         <div class="account-balance">
           <p class="balance-title">Account Balance</p>
-          <button id="toggle-btn" onclick="getBalance()">Show Balance</button>
+          <button id="toggle-btn" onclick="atm('balance')">Show Balance</button>
           <h3 class="balance-sum" id="balance"></h3>
         </div>
         <!--Account actions-->
         <div class="account-actions">
           <!--Deposit-->
-          <button onclick="handleDeposit()" class="action-card deposit">
+          <button onclick="atm('deposit')" class="action-card deposit">
             <i class="fa-solid fa-piggy-bank"></i>
             <p>Deposit</p>
           </button>
           <!--Withdraw-->
-          <button class="action-card withdraw">
+          <button onclick="atm('withdraw')" class="action-card withdraw">
             <i class="fa-solid fa-money-bill-1-wave"></i>
             <p>Withdraw</p>
           </button>
