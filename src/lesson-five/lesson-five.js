@@ -7,11 +7,12 @@ const accountStatus = document.getElementById("account-status");
 const loggedOutMsg = document.getElementById("logged-out-msg");
 const horizontalRule = document.getElementById("horizontal-rule");
 const toggleBtn = document.getElementById("toggle-btn");
+let isVisible = false;
 
 const account = {
   accountName: "Caratacus Drakoryan",
   balance: 65124750,
-  accountNumber: 7429 - 5831 - 6604 - 2197,
+  accountNumber: "7429 - 5831 - 6604 - 2197",
 };
 
 function getAccountName() {
@@ -24,7 +25,6 @@ function handleAlert(message) {
   );
 }
 
-let isVisible = false;
 function getBalance() {
   if (isVisible) {
     balanceSum.textContent = "";
@@ -37,44 +37,42 @@ function getBalance() {
   isVisible = !isVisible;
 }
 
+function isInputValid(input) {
+  const amount = parseFloat(input);
+  if (isNaN(amount) || amount <= 0 || input.trim() !== String(amount)) {
+    alert("Please enter a valid amount!");
+    return false;
+  }
+
+  if (Math.round(amount * 100) / 100 !== amount) {
+    alert("Please enter no more than 2 decimal places!");
+    return false;
+  }
+  return true;
+}
+
 function deposit() {
   const input = prompt("How much money would you like to deposit?");
+  if (!isInputValid(input)) return;
   const depositAmount = parseFloat(input);
-  if (
-    isNaN(depositAmount) ||
-    depositAmount <= 0 ||
-    input.trim() !== String(depositAmount)
-  ) {
-    alert("Please enter a valid amount!");
-  } else if (Math.round(depositAmount * 100) / 100 !== depositAmount) {
-    alert("Please enter no more than 2 decimal places!");
-  } else {
-    account.balance = account.balance + depositAmount;
-    balanceSum.textContent = `$${account.balance.toFixed(2)}`;
-    isVisible = true;
-    toggleBtn.textContent = "Hide Balance";
-  }
+  account.balance += depositAmount;
+  balanceSum.textContent = `$${account.balance.toFixed(2)}`;
+  isVisible = true;
+  toggleBtn.textContent = "Hide Balance";
 }
 
 function withdraw() {
   const input = prompt("How much money would you like to withdraw?");
+  if (!isInputValid(input)) return;
   const withdrawAmount = parseFloat(input);
-  if (
-    isNaN(withdrawAmount) ||
-    withdrawAmount <= 0 ||
-    input.trim() !== String(withdrawAmount)
-  ) {
-    alert("Please enter a valid amount!");
-  } else if (Math.round(withdrawAmount * 100) / 100 !== withdrawAmount) {
-    alert("Please enter no more than 2 decimal places!");
-  } else if (withdrawAmount > account.balance) {
+  if (withdrawAmount > account.balance) {
     alert("Insufficient funds!");
-  } else {
-    account.balance = account.balance - withdrawAmount;
-    balanceSum.textContent = `$${account.balance.toFixed(2)}`;
-    isVisible = true;
-    toggleBtn.textContent = "Hide Balance";
+    return;
   }
+  account.balance -= withdrawAmount;
+  balanceSum.textContent = `$${account.balance.toFixed(2)}`;
+  isVisible = true;
+  toggleBtn.textContent = "Hide Balance";
 }
 
 function exitAccount() {
