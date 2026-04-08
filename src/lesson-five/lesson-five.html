@@ -73,9 +73,50 @@
           <h3 class="balance-sum" id="balance"></h3>
         </div>
         <!--Account actions-->
-        <div class="account-actions"></div>
+        <div class="account-actions">
+          <!--Deposit-->
+          <button onclick="handleDeposit()" class="action-card deposit">
+            <i class="fa-solid fa-piggy-bank"></i>
+            <p>Deposit</p>
+          </button>
+          <!--Withdraw-->
+          <button class="action-card withdraw">
+            <i class="fa-solid fa-money-bill-1-wave"></i>
+            <p>Withdraw</p>
+          </button>
+          <!--Account Info-->
+          <button
+            onclick="handleAlert('Account Information')"
+            class="action-card account-info"
+          >
+            <i class="fa-solid fa-user-gear"></i>
+            <p>Account Info</p>
+          </button>
+        </div>
+        <hr />
         <!--Account status-->
-        <div class="account-status"></div>
+        <div class="account-status">
+          <button class="btn-log-out">
+            <i class="fa-solid fa-power-off"></i> Log Out
+          </button>
+          <button class="btn-exit">
+            <i class="fa-solid fa-circle-xmark"></i> Exit
+          </button>
+        </div>
+        <div class="bottom-account-nav">
+          <div class="bottom-account-nav-btns">
+            <button onclick="handleAlert('Home')" class="btn-home">
+              <i class="fa-solid fa-house"></i> Home
+            </button>
+            <button onclick="handleAlert('More Options')" class="btn-add">
+              <i class="fa-solid fa-circle-plus"></i>
+            </button>
+            <button onclick="handleAlert('Settings')" class="btn-settings">
+              <i class="fa-solid fa-gear"></i> Settings
+            </button>
+          </div>
+          <hr />
+        </div>
       </div>
     </main>
     <script src="lesson-five.js"></script>

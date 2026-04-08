@@ -72,12 +72,14 @@ main {
   min-height: 720px;
   width: 100%;
   margin: 0 auto;
-  background-color: #f2f2f2;
+  background: linear-gradient(to bottom, #ffffff, #f2f2f2);
   padding: 1.5em;
   border-radius: 2em;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  display: flex;
+  flex-direction: column;
 }
 
 /*Signal - WiFi - Battery*/
@@ -98,7 +100,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .account-header h1 {
@@ -126,6 +128,8 @@ main {
   border-radius: 50%;
 }
 
+/*Account Balance*/
+
 .account-balance {
   background-image: url(images/bank-balance-graph.png);
   background-size: cover;
@@ -135,6 +139,10 @@ main {
   text-align: center;
   border-radius: 1em;
   padding-top: 1em;
+  margin-bottom: 1em;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .account-balance .balance-title {
@@ -145,6 +153,7 @@ main {
 
 .account-balance > button {
   background-color: #77b583;
+  font-family: "Poppins", sans-serif;
   border: none;
   color: #fff;
   padding: 0.5em 1em;
@@ -167,4 +176,142 @@ main {
   padding-top: 0.1em;
   font-weight: 500;
   font-size: 1.8em;
+}
+
+/*Account Actions*/
+
+.account-actions,
+.account-status {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+.account-actions .action-card,
+.account-status > button {
+  flex: 1;
+  border: none;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 1em;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.account-actions .action-card {
+  min-height: 103px;
+  background-color: #fff;
+}
+
+.account-actions .action-card > i {
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+  padding: 7px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.account-actions .action-card.deposit > i {
+  color: #a8cfaf;
+  background-color: #e9f2eb;
+}
+
+.account-actions .action-card.withdraw > i {
+  color: #e6a06a;
+  background-color: #ffebdc;
+}
+
+.account-actions .action-card.account-info > i {
+  color: #8f8f8f;
+  background-color: #e6e4e4;
+}
+
+.account-actions .action-card:active,
+.account-status > button:active,
+.bottom-account-nav-btns .btn-home:active,
+.bottom-account-nav-btns .btn-settings:active,
+.bottom-account-nav-btns .btn-add:active {
+  position: relative;
+  top: 2px;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1em;
+}
+
+.account-status > button {
+  padding: 1em;
+  font-size: 1em;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-status > button > i {
+  padding-right: 0.5em;
+  font-size: 1.3em;
+}
+
+.btn-log-out {
+  background-color: #fff;
+}
+
+.btn-log-out > i {
+  color: #8f8f8f;
+}
+
+.btn-exit {
+  background-color: #e76f5a;
+  color: #fff;
+}
+
+/*Bank account footer*/
+
+.bottom-account-nav {
+  margin-top: auto;
+  padding-top: 1em;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  margin-bottom: -1.5em;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  background-color: #fff;
+  border-radius: 0 0 2em 2em;
+}
+
+.bottom-account-nav-btns {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1em;
+}
+
+.bottom-account-nav-btns > button {
+  border: none;
+  cursor: pointer;
+}
+
+.bottom-account-nav-btns .btn-home,
+.bottom-account-nav-btns .btn-settings {
+  background-color: transparent;
+  color: #6f7a80;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  max-width: 85px;
+  width: 100%;
+}
+
+.bottom-account-nav-btns .btn-add {
+  color: #77b583;
+  background-color: transparent;
+  font-size: 3em;
+}
+
+.bottom-account-nav > hr {
+  width: 35%;
+  margin: 0 auto;
+  border: 3px solid black;
+  border-radius: 1em;
 }

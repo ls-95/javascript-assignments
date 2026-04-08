@@ -5,13 +5,16 @@ const account = {
   accountName: "Caratacus Drakoryan",
   balance: 65124750,
 };
-function displayInformation() {
+
+function getAccountName() {
   accountNameText.textContent = `Hello, ${account.accountName}!`;
 }
-displayInformation();
+getAccountName();
 
 function handleAlert(message) {
-  alert(`Hi! The service: "${message}" is currently unavailable!`);
+  alert(
+    `Hi! The service: "${message}" is currently unavailable! Please try again later`,
+  );
 }
 
 let isVisible = false;
@@ -27,3 +30,7 @@ function getBalance() {
 
   isVisible = !isVisible;
 }
+
+function handleDeposit() {}
+
+function handleWithdraw() {}
