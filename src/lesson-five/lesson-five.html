@@ -57,8 +57,12 @@
           <i class="fa-solid fa-wifi"></i>
           <i class="fa-solid fa-battery-full"></i>
         </div>
-        <div class="account-header">
-          <!--Account header-->
+
+        <!--Logged out message-->
+        <p class="hidden" id="logged-out-msg"></p>
+
+        <!--Account header-->
+        <div class="account-header" id="account-header">
           <h1 class="account-name" id="account-name">
             Account Name <i class="fa-solid fa-arrow-right-long"></i>
           </h1>
@@ -68,16 +72,16 @@
             </button>
           </div>
         </div>
-        <!--Logged out message-->
-        <p class="hidden" id="logged-out-msg"></p>
+
         <!--Account balance-->
-        <div class="account-balance">
+        <div class="account-balance" id="account-balance">
           <p class="balance-title">Account Balance</p>
           <button id="toggle-btn" onclick="atm('balance')">Show Balance</button>
           <h3 class="balance-sum" id="balance"></h3>
         </div>
+
         <!--Account actions-->
-        <div class="account-actions">
+        <div class="account-actions" id="account-actions">
           <!--Deposit-->
           <button onclick="atm('deposit')" class="action-card deposit">
             <i class="fa-solid fa-piggy-bank"></i>
@@ -97,16 +101,19 @@
             <p>Account Info</p>
           </button>
         </div>
-        <hr />
+        <hr id="horizontal-rule" />
+
         <!--Account status-->
-        <div class="account-status">
-          <button class="btn-log-out">
+        <div class="account-status" id="account-status">
+          <button onclick="atm('exit')" class="btn-log-out">
             <i class="fa-solid fa-power-off"></i> Log Out
           </button>
           <button class="btn-exit">
             <i class="fa-solid fa-circle-xmark"></i> Exit
           </button>
         </div>
+
+        <!--Bottom Navbar-->
         <div class="bottom-account-nav">
           <div class="bottom-account-nav-btns">
             <button onclick="handleAlert('Home')" class="btn-home">

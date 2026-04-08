@@ -1,5 +1,12 @@
 const accountNameText = document.getElementById("account-name");
-const accountBalance = document.getElementById("balance");
+const balanceSum = document.getElementById("balance");
+const accountHeader = document.getElementById("account-header");
+const accountBalance = document.getElementById("account-balance");
+const accountActions = document.getElementById("account-actions");
+const accountStatus = document.getElementById("account-status");
+const loggedOutMsg = document.getElementById("logged-out-msg");
+const horizontalRule = document.getElementById("horizontal-rule");
+const toggleBtn = document.getElementById("toggle-btn");
 
 const account = {
   accountName: "Caratacus Drakoryan",
@@ -18,12 +25,11 @@ function handleAlert(message) {
 
 let isVisible = false;
 function getBalance() {
-  const toggleBtn = document.getElementById("toggle-btn");
   if (isVisible) {
-    accountBalance.textContent = "";
+    balanceSum.textContent = "";
     toggleBtn.textContent = "Show Balance";
   } else {
-    accountBalance.textContent = `$${account.balance}.00`;
+    balanceSum.textContent = `$${account.balance.toFixed(2)}`;
     toggleBtn.textContent = "Hide Balance";
   }
 
@@ -31,19 +37,54 @@ function getBalance() {
 }
 
 function deposit() {
-  const depositAmount = parseFloat(
-    prompt("How much money would you like to deposit?"),
-  );
-  account.balance = account.balance + depositAmount;
-  accountBalance.textContent = `$${account.balance}.00`;
+  const input = prompt("How much money would you like to deposit?");
+  const depositAmount = parseFloat(input);
+  if (
+    isNaN(depositAmount) ||
+    depositAmount <= 0 ||
+    input.trim() !== String(depositAmount)
+  ) {
+    alert("Please enter a valid amount!");
+  } else if (Math.round(depositAmount * 100) / 100 !== depositAmount) {
+    alert("Please enter no more than 2 decimal places!");
+  } else {
+    account.balance = account.balance + depositAmount;
+    balanceSum.textContent = `$${account.balance.toFixed(2)}`;
+    isVisible = true;
+    toggleBtn.textContent = "Hide Balance";
+  }
 }
 
 function withdraw() {
-  const withdrawAmount = parseFloat(
-    prompt("How much money would you like to withdraw?"),
-  );
-  account.balance = account.balance - withdrawAmount;
-  accountBalance.textContent = `$${account.balance}.00`;
+  const input = prompt("How much money would you like to withdraw?");
+  const withdrawAmount = parseFloat(input);
+  if (
+    isNaN(withdrawAmount) ||
+    withdrawAmount <= 0 ||
+    input.trim() !== String(withdrawAmount)
+  ) {
+    alert("Please enter a valid amount!");
+  } else if (Math.round(withdrawAmount * 100) / 100 !== withdrawAmount) {
+    alert("Please enter no more than 2 decimal places!");
+  } else if (withdrawAmount > account.balance) {
+    alert("Insufficient funds!");
+  } else {
+    account.balance = account.balance - withdrawAmount;
+    balanceSum.textContent = `$${account.balance.toFixed(2)}`;
+    isVisible = true;
+    toggleBtn.textContent = "Hide Balance";
+  }
+}
+
+function exitAccount() {
+  accountHeader.classList.add("hidden");
+  accountBalance.classList.add("hidden");
+  accountActions.classList.add("hidden");
+  accountStatus.classList.add("hidden");
+  horizontalRule.classList.add("hidden");
+  loggedOutMsg.classList.remove("hidden");
+  loggedOutMsg.classList.add("logged-out-msg");
+  loggedOutMsg.textContent = "You have successfully logged out!";
 }
 
 function atm(action) {
@@ -61,5 +102,7 @@ function atm(action) {
       getAccountName();
       break;
     case "exit":
+      exitAccount();
+      break;
   }
 }

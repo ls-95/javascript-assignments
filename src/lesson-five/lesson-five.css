@@ -319,3 +319,8 @@ hr {
 .hidden {
   display: none;
 }
+
+.logged-out-msg {
+  text-align: center;
+  padding-top: 2em;
+}
