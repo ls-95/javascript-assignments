@@ -11,6 +11,7 @@ const toggleBtn = document.getElementById("toggle-btn");
 const account = {
   accountName: "Caratacus Drakoryan",
   balance: 65124750,
+  accountNumber: 7429 - 5831 - 6604 - 2197,
 };
 
 function getAccountName() {
@@ -86,6 +87,26 @@ function exitAccount() {
   loggedOutMsg.classList.add("logged-out-msg");
   loggedOutMsg.textContent = "You have successfully logged out!";
 }
+
+function accountError(accountNumber, nameToCheck) {
+  try {
+    if (accountNumber !== account.accountNumber) {
+      throw new Error("Account number not found");
+    }
+    const nameMatches =
+      account.accountName.toLowerCase() === nameToCheck.toLowerCase();
+    if (nameMatches) {
+      console.log("Name matched! Access granted");
+    } else {
+      console.log("Name does not match. Access denied.");
+    }
+  } catch (error) {
+    console.log("Error:", error.message);
+  }
+}
+accountError(account.accountNumber, account.accountName);
+accountError(123445, account.accountName);
+accountError(account.accountNumber, "James Dean");
 
 function atm(action) {
   switch (action) {
